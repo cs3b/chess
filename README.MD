@@ -117,7 +117,7 @@ It works!
 
 #### Interface Segregation
 
-LINK DO DIFFA DAĆ
+[e. g. here](https://github.com/dominikduda/chess/commit/a9084247a749f2909d2a60ac12cb12c56e3c807c#diff-b1e2f7339ac402972efd3abe07ffd5c5R18)
 
 ```ruby
 class FetchAClass
