@@ -11,7 +11,7 @@ require 'figure/king'
 require 'figure/bishop'
 require 'figure/queen'
 require 'figure/rook'
-
+require 'support/fetch_a_class.rb'
 class Exercise
   attr_reader :figure_move_class
 
@@ -38,4 +38,8 @@ class Exercise
   end
 end
 
-Exercise.new(Figure::Knight).call
+if Support::FetchAClass.new(ARGV[1]).class_valid?
+  Exercise.new(Figure::Knight).call
+else
+  raise "Figure #{ARGV[1]} is not implemented"
+end
