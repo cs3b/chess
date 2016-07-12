@@ -10,6 +10,8 @@ module Support
       to_char(x) + y.to_s
     end
 
+    private
+
     def to_number(char)
       CHARACTERS_MAP.index(char)
     end

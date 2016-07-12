@@ -6,6 +6,8 @@ module Support
       range.cover?(coord_x) && range.cover?(coord_y)
     end
 
+    private
+
     def range
       1..SIZE
     end
