@@ -24,6 +24,10 @@ module Figure
 
     private
 
+    def vectors
+      range.flat_map { |distance| directions.map { |direction| direction * distance }.each_slice(2).to_a }
+    end
+
     def moves
       vectors.map { |vector_x, vector_y| [x + vector_x, y + vector_y] }
     end
