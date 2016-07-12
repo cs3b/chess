@@ -30,7 +30,7 @@ class Exercise
   private
 
   def format_output(positions)
-    positions.join(' ') << "\n"
+    positions.sort.join(' ') << "\n"
   end
 
   def calculate_possible_positions(line)
