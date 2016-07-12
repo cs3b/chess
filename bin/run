@@ -10,13 +10,14 @@ require 'figure/king'
 require 'figure/bishop'
 require 'figure/queen'
 require 'figure/rook'
+require 'support/fetch_figure_class'
 
 class Exercise
-  attr_reader :figure_move_class
 
   include Support::ReadFromFile
+  include Support::FetchFigureClass
 
-  def initialize(figure_move_class)
+  def initialize
     @figure_move_class = figure_move_class
   end
 
@@ -38,4 +39,4 @@ class Exercise
 end
 
 p ARGV[1]
-Exercise.new(Object.const_get('Figure').const_get(ARGV[1])).call
+Exercise.new.call
