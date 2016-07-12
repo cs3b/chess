@@ -5,8 +5,8 @@ module Support
       [position[0].ord - ASCII_OFFSET, position[1].to_i]
     end
 
-    def to_position(coordinate)
-      [(coordinate.first + ASCII_OFFSET).chr, coordinate.last.to_s].join
+    def to_position(x, y)
+      [(x + ASCII_OFFSET).chr, y.to_s].join
     end
   end
 end
