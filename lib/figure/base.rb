@@ -2,23 +2,21 @@ module Figure
   class Base
     attr_reader :x, :y, :color
 
-    CHARACTERS_MAP = ' abcdefgh'.freeze
-
-    def initialize(x, y, color = white, properties = {})
+    def initialize(x, y, color = 'white', properties = {})
       @x = x
       @y = y
       @color = color
       post_initialize(properties)
     end
 
-    def on_board_moves
-      moves.select { |move| on_board?(move.first, move.last) }
+    def possible_coordinates
+      all_coordinates.select { |move| on_board?(move.first, move.last) }
     end
 
     protected
 
-    def x_to_number
-      CHARACTERS_MAP.index(x)
+    def all_coordinates
+      vectors.map { |vector_x, vector_y| [x + vector_x, y + vector_y] }
     end
 
     def on_board?(coord_x, coord_y)
@@ -26,10 +24,6 @@ module Figure
     end
 
     def post_initialize(properties)
-    end
-
-    def moves
-      vectors.map { |vector_x, vector_y| [x_to_number + vector_x, y.to_i + vector_y] }
     end
 
     def vectors

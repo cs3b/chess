@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 $LOAD_PATH.unshift(File.expand_path("../../lib",__FILE__))
 
+require 'pry'
 require 'support/read_from_file'
 require 'chess_piece_move'
 require 'figure/knight'
@@ -36,4 +37,4 @@ class Exercise
   end
 end
 
-Exercise.new(Figure::Queen).call
+Exercise.new(Figure::Knight).call
