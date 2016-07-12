@@ -1,15 +1,17 @@
 ## Chess Play
 
-### setup
+------------------
 
-### usege
+### Usage
 
-`bin/run examples/moves.txt Queen`
+`bin/run examples/moves.txt Queen white`
+
+`bin/run "text file with positions" "figure" "color"`
 
 available figures:
 
 * Bishop
-* BlackPawn / WhitePawn
+* Pawn
 * King
 * Knight
 * Queen
