@@ -3,7 +3,7 @@ require 'support/board'
 
 module Figure
   class Base
-    attr_reader :x, :y
+    attr_reader :x, :y, :color
 
     include Support::TransformPosition
     include Support::Board
@@ -12,13 +12,10 @@ module Figure
     N_EAST_S_WEST = [[-1, -1], [1, 1]].freeze
     N_WEST_S_EAST = [[-1, 1], [1, -1]].freeze
 
-    def initialize(position, properties = {})
+    def initialize(position, color = 'white')
       @x = position.first
       @y = position.last
-      post_initialize(properties)
-    end
-
-    def post_initialize(properties)
+      @color = color
     end
 
     def possible_moves

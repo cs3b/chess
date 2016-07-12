@@ -11,6 +11,6 @@ ChessPieceMove = Struct.new(:position, :figure_move_class) do
   private
 
   def possible_coordinates(coordinate)
-    figure_move_class.new(coordinate).possible_moves
+    figure_move_class.new(coordinate, ARGV[2]).possible_moves
   end
 end
