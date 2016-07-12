@@ -38,17 +38,5 @@ class Exercise
   end
 end
 
-p 'King'
-Exercise.new(Figure::King).call
-p 'Queen'
-Exercise.new(Figure::Queen).call
-p 'Rook'
-Exercise.new(Figure::Rook).call
-p 'Bishop'
-Exercise.new(Figure::Bishop).call
-p 'Knight'
-Exercise.new(Figure::Knight).call
-p 'WhitePawn'
-Exercise.new(Figure::WhitePawn).call
-p 'BlackPawn'
-Exercise.new(Figure::BlackPawn).call
+p ARGV[1]
+Exercise.new(Object.const_get('Figure').const_get(ARGV[1])).call
