@@ -4,6 +4,7 @@ $LOAD_PATH.unshift(File.expand_path("../../lib",__FILE__))
 require 'pry'
 require 'support/read_from_file'
 require 'chess_piece_move'
+require 'support/board.rb'
 require 'figure/knight'
 require 'figure/pawn'
 require 'figure/king'
