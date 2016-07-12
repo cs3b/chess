@@ -22,6 +22,8 @@ module Figure
       moves.select { |move| on_board?(move.first, move.last) }
     end
 
+    private
+
     def moves
       vectors.map { |vector_x, vector_y| [x + vector_x, y + vector_y] }
     end
