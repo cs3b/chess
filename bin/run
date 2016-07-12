@@ -48,3 +48,7 @@ p 'Bishop'
 Exercise.new(Figure::Bishop).call
 p 'Knight'
 Exercise.new(Figure::Knight).call
+p 'WhitePawn'
+Exercise.new(Figure::WhitePawn).call
+p 'BlackPawn'
+Exercise.new(Figure::BlackPawn).call

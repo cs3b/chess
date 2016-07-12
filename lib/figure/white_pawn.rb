@@ -2,34 +2,24 @@ require 'figure/base'
 
 module Figure
   class WhitePawn < Base
-    VECTORS_NORTH = [[0, +1], [0, +2]].freeze
-    VECTORS_SOUTH = [[0, -1], [0, -2]].freeze
+    VECTORS_NORTH = [[0, +1], [0, +2]].flatten
+    RANGE = (1..1)
 
     def post_initialize(properties)
       @properties = properties
       @touched = false
     end
 
-    private
-
-    def white?
-      @properties[:color] == 'white'
-    end
-
     def first_move?
-      @touched
+      y == 2
     end
 
-    def direction_vectors
-      white? ? VECTORS_NORTH : VECTORS_SOUTH
+    def directions
+      first_move? ? VECTORS_NORTH[0..3] : VECTORS_NORTH[0..1]
     end
 
     def vectors
-      first_move? ? direction_vectors[0..0] : direction_vectors[0..1]
-    end
-
-    def moves
-      vectors.map { |vector_x, vector_y| [x + vector_x, y + vector_y] }
+      RANGE.flat_map { |distance| directions.map { |direction| direction * distance }.each_slice(2).to_a }
     end
   end
 end

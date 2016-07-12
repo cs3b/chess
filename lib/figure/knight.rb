@@ -4,7 +4,7 @@ module Figure
   class Knight < Base
     RANGE = (1..1)
     def directions
-      [[-2, -1], [-2, +1], [-1, -2], [-1, +2], [+1, -2], [+1, +2], [+2, -1], [+2, +1]].freeze.flatten
+      [[-2, -1], [-2, +1], [-1, -2], [-1, +2], [+1, -2], [+1, +2], [+2, -1], [+2, +1]].flatten
     end
 
     def vectors
