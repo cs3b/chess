@@ -38,8 +38,6 @@ class Exercise
   end
 end
 
-if Support::FetchAClass.new(ARGV[1]).class_valid?
-  Exercise.new(Support::FetchAClass.new(ARGV[1]).fetch_const).call
-else
-  raise "Figure #{ARGV[1]} is not implemented"
-end
+fetch_class = Support::FetchAClass.new(ARGV[1])
+raise "Figure #{ARGV[1]} is not implemented" unless fetch_class.fetch_const
+Exercise.new(fetch_class.fetch_const).call
