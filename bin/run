@@ -36,5 +36,5 @@ class Exercise
     ChessPieceMove.new(line, figure_move_class).possible_positions
   end
 end
-
+binding.pry
 Exercise.new(Figure::Queen).call
