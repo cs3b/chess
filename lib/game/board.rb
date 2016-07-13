@@ -5,10 +5,10 @@ require 'figure/bishop'
 require 'figure/queen'
 require 'figure/rook'
 require 'figure/base'
-
+require 'support/moves_helper'
 module Game
   class Board
-    SCOPE = (1..8)
+    include Support::MovesHelper
 
     def initialize
       @chess_board = {}
@@ -42,18 +42,6 @@ module Game
       (1..8).each do |i|
         @chess_board[[i, 7]] = Figure::Pawn.new([i, 7], 'black')
       end
-    end
-
-    def valid_move?(move)
-      @chess_board[move].nil?
-    end
-
-    def possible_moves(x, y)
-      @chess_board[[x, y]].moves.select { |move| on_board?(move) && valid_move?(move) }
-    end
-
-    def on_board?(move)
-      SCOPE.cover?(move.first) && SCOPE.cover?(move.last)
     end
   end
 end
