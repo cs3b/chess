@@ -7,7 +7,7 @@ module Figure
       @y = y
       @color = color
       @board = Support::Board.new
-      post_initialize(properties)
+      # post_initialize(properties)
     end
 
     def possible_coordinates
@@ -20,8 +20,8 @@ module Figure
       vectors.map { |vector_x, vector_y| [x + vector_x, y + vector_y] }
     end
 
-    def post_initialize(properties)
-    end
+    # def post_initialize(properties)
+    # end
 
     def vectors
       raise NotImplementedError
