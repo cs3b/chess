@@ -3,6 +3,7 @@ $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
 
 require 'pry'
 require 'support/read_from_file'
+require 'game/board'
 require 'chess_piece_move'
 require 'figure/knight'
 require 'figure/pawn'
@@ -13,7 +14,6 @@ require 'figure/rook'
 require 'support/fetch_figure_class'
 
 class Exercise
-
   include Support::ReadFromFile
   include Support::FetchFigureClass
 
@@ -38,5 +38,9 @@ class Exercise
   end
 end
 
-p ARGV[1]
-Exercise.new.call
+# p ARGV[1]
+# Exercise.new.call
+
+board = Game::Board.new
+p 'Board moves:'
+p board.possible_moves(1, 1)
