@@ -46,4 +46,4 @@ p 'Board moves:'
 p board.possible_moves(1, 1)
 p board.move_figure([1, 1], [2, 1])
 p board.possible_moves(1, 1)
-p board.collision_check?([1, 1], [1, 7])
+p board.collision_check?([1, 1], [1, 7]) ? 'Move successful!' : 'Move failed ;('

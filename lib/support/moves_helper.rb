@@ -58,7 +58,7 @@ module Support
     end
 
     def collision_check?(position, destination)
-      vector = find_vector(position)
+      vector = find_vector(position, destination)
       coords = add_vectors(position, vector)
       add_vectors(coords, vector) while valid_move?(coords) && coords != destination
       can_attack?(position, coords) && coords == destination ? true : false
