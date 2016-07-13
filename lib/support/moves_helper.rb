@@ -45,14 +45,22 @@ module Support
       [a.first + b.first, a.last + b.last]
     end
 
-    def collision_check?(position, destination)
+    def vector_from_offset(coord)
+      coord > 0 ? coord / coord.abs : 0
+    end
+
+    def find_vector(position, destination)
       hsh = DIRECTIONS.select do |_key, val|
         [(destination.first - position.first),
-         (destination.last - position.last)].map { |coord| coord > 0 ? coord / coord.abs : 0 } == val
+         (destination.last - position.last)].map { |_coord| vector_from_offset } == val
       end
-      vector = hsh.values.first
+      hsh.values.first
+    end
+
+    def collision_check?(position, destination)
+      vector = find_vector(position)
       coords = add_vectors(position, vector)
-      add_vectors(coords, vector) while valid_move?(coords)
+      add_vectors(coords, vector) while valid_move?(coords) && coords != destination
       can_attack?(position, coords) && coords == destination ? true : false
     end
   end
