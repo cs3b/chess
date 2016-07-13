@@ -6,7 +6,10 @@ describe Figure::Knight do
     context 'when knight is starting' do
 
       context 'at least two fields from border' do
-        pending 'returns 8 possible coordinates for next move'
+        let(:knight) { Figure::Knight.new(3, 3) }
+        it 'returns 8 possible coordinates for next move' do
+          expect(knight.possible_coordinates.sort).to eql([[1, 2], [1, 4], [2, 1], [2, 5], [4, 1], [4, 5], [5, 2], [5, 4]])
+        end
       end
 
       context 'in the corner of the board' do
