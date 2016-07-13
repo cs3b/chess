@@ -33,6 +33,13 @@ module Game
       end
     end
 
+    def add_figure(x, y, type)
+    end
+
+    def figure_const(type)
+      Support::FetchAClass.new(type)
+    end
+
     def tap
     end
   end
