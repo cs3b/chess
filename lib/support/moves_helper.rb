@@ -17,8 +17,12 @@ module Support
       SCOPE.cover?(move.first) && SCOPE.cover?(move.last)
     end
 
-    def figure_coords_after_move
-      
+    def figure_coords_after_move(position, destination)
+      if possible_moves(*position).include?(destination)
+        @chess_board[destination] = @chess_board[position].tap { |figure| figure.x, figure.y = destination }
+      else
+        @chess_board[position]
+      end
     end
   end
 end

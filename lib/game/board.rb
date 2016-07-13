@@ -43,5 +43,9 @@ module Game
         @chess_board[[i, 7]] = Figure::Pawn.new([i, 7], 'black')
       end
     end
+
+    def move_figure(position, destination)
+      figure_coords_after_move(position, destination)
+    end
   end
 end

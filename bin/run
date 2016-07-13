@@ -43,4 +43,4 @@ end
 
 board = Game::Board.new
 p 'Board moves:'
-p board.possible_moves(1, 1)
+p board.move_figure([1, 1], [1, 7])

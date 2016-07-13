@@ -2,7 +2,8 @@ require 'support/transform_position'
 
 module Figure
   class Base
-    attr_reader :x, :y, :color
+    attr_reader :color
+    attr_accessor :x, :y
 
     include Support::TransformPosition
     NORTH_SOUTH = [[0, 1], [0, -1]].freeze
