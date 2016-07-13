@@ -4,14 +4,15 @@ $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
 require 'pry'
 require 'support/read_from_file'
 require 'chess_piece_move'
-require 'support/board.rb'
+require 'support/board'
 require 'figure/knight'
 require 'figure/pawn'
 require 'figure/king'
 require 'figure/bishop'
 require 'figure/queen'
 require 'figure/rook'
-require 'support/fetch_a_class.rb'
+require 'support/fetch_a_class'
+require 'game/board_controller'
 class Exercise
   attr_reader :figure_move_class
 
@@ -39,7 +40,32 @@ class Exercise
   end
 end
 
-fetch_class = Support::FetchAClass.new(ARGV[1])
-raise "Figure #{ARGV[1]} is not implemented" unless fetch_class.fetch_const
-puts "Possible moves for #{ARGV[1]}\n\n"
-Exercise.new(fetch_class.fetch_const).call
+class MoveFigure
+  def initialize(start, destination)
+    @start = start
+    @destination = destination
+    @game = Game::BoardController.default
+  end
+
+  def move
+    board = @game.instance_variable_get(:@chess_board)
+
+    board[[5,5]] = board[[1,1]]
+    board[[1,1]] = nil
+
+    self
+  end
+
+  def to_s
+    @game.to_s
+  end
+end
+
+if ARGV[0] == 'move'
+  puts MoveFigure.new(ARGV[1], ARGV[2]).move
+else
+  fetch_class = Support::FetchAClass.new(ARGV[1])
+  raise "Figure #{ARGV[1]} is not implemented" unless fetch_class.fetch_const
+  puts "Possible moves for #{ARGV[1]}\n\n"
+  Exercise.new(fetch_class.fetch_const).call
+end

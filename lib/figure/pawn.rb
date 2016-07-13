@@ -15,10 +15,14 @@ module Figure
       first_move ? direction_vectors[0..1] : direction_vectors[0..0]
     end
 
-    private
-
-    def direction_vectors
-      color == 'white' ? VECTORS_SOUTH : VECTORS_NORTH
+    def to_s
+      'p'
     end
-  end
+
+      private
+
+      def direction_vectors
+        color == 'white' ? VECTORS_SOUTH : VECTORS_NORTH
+    end
+    end
 end

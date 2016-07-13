@@ -7,5 +7,8 @@ module Figure
     def vectors
       VECTORS
     end
+    def to_s
+      'K'
+    end
   end
 end

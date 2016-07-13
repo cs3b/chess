@@ -10,5 +10,8 @@ module Figure
     def vectors
       VECTORS
     end
+    def to_s
+      'b'
+    end
   end
 end

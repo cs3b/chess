@@ -6,12 +6,16 @@ module Figure
       @x = x
       @y = y
       @color = color
-      @board = Support::Board.new
+      # @board = Support::Board.new
       # post_initialize(properties)
     end
 
     def possible_coordinates
       all_coordinates.select { |move| @board.on_board?(move.first, move.last) }
+    end
+
+    def to_s
+      raise NotImplementedError
     end
 
     protected
