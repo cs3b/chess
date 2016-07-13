@@ -23,6 +23,7 @@ class Exercise
 
   def call
     each_line do |line|
+      puts "Possible moves at #{line}\n"
       format_output(calculate_possible_positions(line))
     end
   end
@@ -40,4 +41,5 @@ end
 
 fetch_class = Support::FetchAClass.new(ARGV[1])
 raise "Figure #{ARGV[1]} is not implemented" unless fetch_class.fetch_const
+puts "Possible moves for #{ARGV[1]}\n\n"
 Exercise.new(fetch_class.fetch_const).call
