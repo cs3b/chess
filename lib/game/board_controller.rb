@@ -37,7 +37,7 @@ module Game
 
     def to_s
       (1..8).to_a.reverse.map do |y|
-        (1..8).each.with_object("") do |x, memo|
+      (1..8).each.with_object("") do |x, memo|
             memo << (@chess_board.fetch([x,y], " ").to_s)
         end
       end.join("\n")
