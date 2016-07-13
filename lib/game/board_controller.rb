@@ -20,6 +20,20 @@ module Game
       end
     end
 
+    private
+
+    def add_figure(x, y, type)
+      chess_board[[x, y]] = figure(x, y, type)
+    end
+
+    def figure(x, y, type)
+      figure_const(type).new(x, y)
+    end
+
+    def figure_const(type)
+      Support::FetchAClass.new(type)
+    end
+
     def tap
     end
   end
