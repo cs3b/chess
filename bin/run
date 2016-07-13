@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-$LOAD_PATH.unshift(File.expand_path("../../lib",__FILE__))
+$LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
 
 require 'pry'
 require 'support/read_from_file'
@@ -13,9 +13,9 @@ require 'figure/rook'
 require 'support/fetch_a_class'
 
 class Exercise
-  attr_reader :figure_move_class
-
   include Support::ReadFromFile
+
+  attr_reader :figure_move_class
 
   def initialize(figure_move_class)
     @figure_move_class = figure_move_class

@@ -1,6 +1,5 @@
 module Support
   module ReadFromFile
-
     def each_line(&block)
       input_file.each_line do |line|
         puts block.call(line.chomp)

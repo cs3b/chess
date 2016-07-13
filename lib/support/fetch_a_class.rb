@@ -1,6 +1,7 @@
 module Support
   class FetchAClass
     attr_reader :class_name
+
     FIGURES = %w(Pawn Bishop King Knight Rook Queen).freeze
 
     def initialize(class_name)

@@ -2,7 +2,7 @@ module Figure
   class Base
     attr_reader :x, :y, :color
 
-    SCOPE = (1..8)
+    RANGE = 1..8
 
     def initialize(x, y, properties = {})
       @x = x
@@ -18,7 +18,7 @@ module Figure
     protected
 
     def on_board?(x, y)
-      SCOPE.cover?(x) && SCOPE.cover?(y)
+      RANGE.cover?(x) && RANGE.cover?(y)
     end
 
     def moves
