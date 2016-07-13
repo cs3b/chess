@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 $LOAD_PATH.unshift(File.expand_path("../../lib",__FILE__))
 
+require 'pry'
 require 'support/read_from_file'
 require 'chess_piece_move'
 require 'figure/knight'
-require 'figure/white_pawn'
-require 'figure/black_pawn'
+require 'figure/pawn'
 require 'figure/king'
 require 'figure/bishop'
 require 'figure/queen'
@@ -35,7 +35,6 @@ class Exercise
   def calculate_possible_positions(line)
     ChessPieceMove.new(line, figure_move_class).possible_positions
   end
-
 end
 
-Exercise.new(Figure::Queen).call
+Exercise.new(Figure::Pawn).call
