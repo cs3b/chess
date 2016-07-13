@@ -2,15 +2,23 @@ require 'figure/base'
 
 module Figure
   class Pawn < Base
-    VECTOR_START = [[+2, 0]].freeze
-    VECTOR_MOVE = [[+1, 0]].freeze
+    attr_reader :moved
 
-    def moves
-      if @x == 2
-        VECTOR_START.map { |vector_x, vector_y| [@x + vector_x, @y + vector_y] }
-      else
-        VECTOR_MOVE.map { |vector_x, vector_y| [@x + vector_x, @y + vector_y] }
-      end
+    VECTOR_NORTH = [[0, +1], [0, +2]].freeze
+    VECTOR_SOUTH = [[0, -1], [0, -2]].freeze
+
+    def post_initialize(_args)
+      @moved = false
+    end
+
+    def vectors
+      moved ? direction_vectors[0..0] : direction_vectors[0..1]
+    end
+
+    private
+
+    def direction_vectors
+      color == 'white' ? VECTOR_NORTH : VECTOR_SOUTH
     end
   end
 end
