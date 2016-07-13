@@ -8,12 +8,15 @@ module Support
       @class_name = class_name
     end
 
-    def class_valid?
-      WHITELIST.include?(class_name)
+    def fetch_const
+      return unless class_valid?
+      Object.const_get("Figure::#{class_name}")
     end
 
-    def fetch_const
-      Object.const_get("Figure::#{class_name}")
+    private
+
+    def class_valid?
+      WHITELIST.include?(class_name)
     end
   end
 end
