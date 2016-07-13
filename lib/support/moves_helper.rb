@@ -52,7 +52,7 @@ module Support
     def find_vector(position, destination)
       hsh = DIRECTIONS.select do |_key, val|
         [(destination.first - position.first),
-         (destination.last - position.last)].map { |_coord| vector_from_offset } == val
+         (destination.last - position.last)].map { |coord| vector_from_offset(coord) } == val
       end
       hsh.values.first
     end
