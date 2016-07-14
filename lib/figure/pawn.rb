@@ -4,8 +4,8 @@ module Figure
   class Pawn < Base
     attr_reader :moved
 
-    VECTOR_NORTH = [[0, +1], [0, +2]].freeze
-    VECTOR_SOUTH = [[0, -1], [0, -2]].freeze
+    VECTOR_NORTH = [[0, +1], [0, +2]].flatten
+    VECTOR_SOUTH = [[0, -1], [0, -2]].flatten
 
     def post_initialize(_args)
       @moved = false
