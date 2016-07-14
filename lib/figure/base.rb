@@ -4,15 +4,18 @@ module Figure
 
     RANGE = 1..8
 
-    def initialize(x, y, properties = {})
+    def initialize(x, y, color = 'white')
       @x = x
       @y = y
-      @color = properties[:color] || 'white'
-      post_initialize(properties)
+      @color = color
     end
 
     def possible_coordinates
       moves.select { |move| on_board?(move.first, move.last) }
+    end
+
+    def vectors
+      raise NotImplementedError
     end
 
     protected
@@ -23,10 +26,6 @@ module Figure
 
     def moves
       vectors.map { |vector_x, vector_y| [x + vector_x, y + vector_y] }
-    end
-
-    def vectors
-      raise NotImplementedError
     end
 
     def post_initialize(properties)

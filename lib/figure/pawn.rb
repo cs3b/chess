@@ -2,7 +2,7 @@ require 'figure/base'
 
 module Figure
   class Pawn < Base
-    attr_reader :moved
+    attr_reader :color, :first_move
 
     VECTOR_NORTH = [[0, +1], [0, +2]].freeze
     VECTOR_SOUTH = [[0, -1], [0, -2]].freeze
@@ -11,8 +11,12 @@ module Figure
       @moved = true
     end
 
+    def first_move?
+      (y == 2 && color == 'white') || (y == 7 && color == 'black')
+    end
+
     def vectors
-      moved ? direction_vectors[0..1] : direction_vectors[0..0]
+      first_move? ? direction_vectors[0..1] : direction_vectors[0..0]
     end
 
     private
