@@ -7,6 +7,4 @@ describe Figure::Base do
       end
     end
   end
-
-  pending 'coordinate should not know about board size'
 end
