@@ -15,5 +15,11 @@ describe Support::TransformPosition do
       end
     end
   end
-  pending '#to_position', '(from coordinate [x,y])'
+  context '#to_position' do
+    context 'from coordinate [3,2]' do
+      it 'return c2' do
+        expect(transform_position.to_position(3, 2)).to eql('c2')
+      end
+    end
+  end
 end
