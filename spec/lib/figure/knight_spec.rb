@@ -14,7 +14,14 @@ describe Figure::Knight do
     context 'in the middle of the board' do
       let(:position) { [4, 4] }
       it 'returns 8 moves' do
-        expect(knight.possible_coordinates).to contain_exactly([2, 3], [2, 5], [6, 5], [3, 6], [5, 6], [6, 3], [5, 2], [3, 2])
+        expect(knight.possible_coordinates).to contain_exactly([2, 3], [2, 5], [6, 5], [3, 6], [5, 6],
+                                                               [6, 3], [5, 2], [3, 2])
+      end
+    end
+    context 'at start position' do
+      let(:position) { [2, 1] }
+      it 'returns 3 moves' do
+        expect(knight.possible_coordinates).to contain_exactly([1, 3], [3, 3], [4, 2])
       end
     end
   end
