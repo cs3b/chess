@@ -10,10 +10,8 @@ describe Figure::Queen do
        [10, -2], [-2, 10], [-2, -2], [11, 4], [-3, 4], [4, 11], [4, -3], [11, 11], [11, -3], [-3, 11], [-3, -3]]
     end
 
-    context 'in the middle of the board' do
-      it 'returns array of not filtered potential coordinates' do
-        expect(described_class.new([4, 4]).moves).to match_array queen_moves
-      end
+    it 'returns array of not filtered potential coordinates' do
+      expect(described_class.new([4, 4]).moves).to match_array queen_moves
     end
   end
 end
