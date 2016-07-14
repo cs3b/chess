@@ -8,6 +8,15 @@ describe Support::TransformPosition do
   end
   let(:transform_position) { ChessPieceDouble.new }
 
-  pending '#to_coordinate', '(from position "ay")'
-  pending '#to_position', '(from coordinate [x,y])'
+  describe '#to_coordinate' do
+    it 'returns array of coordinates' do
+      expect(transform_position.to_coordinate('d4')).to eql [4, 4]
+    end
+  end
+
+  describe '#to_position' do
+    it 'returns position string from coords' do
+      expect(transform_position.to_position(4, 4)).to eql 'd4'
+    end
+  end
 end
