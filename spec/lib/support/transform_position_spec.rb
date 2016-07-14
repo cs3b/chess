@@ -8,18 +8,10 @@ describe Support::TransformPosition do
   end
   let(:transform_position) { ChessPieceDouble.new }
 
-  context '#to_coordinate' do
-    context 'from d4' do
-      it 'return [4, 4]' do
-        expect(transform_position.to_coordinate('d4')).to eql([4, 4])
-      end
-    end
+  describe '#to_coordinate' do
+    it { expect(transform_position.to_coordinate('d4')).to eql([4, 4]) }
   end
-  context '#to_position' do
-    context 'from coordinate [3,2]' do
-      it 'return c2' do
-        expect(transform_position.to_position(3, 2)).to eql('c2')
-      end
-    end
+  describe '#to_position' do
+    it { expect(transform_position.to_position(3, 2)).to eql('c2') }
   end
 end

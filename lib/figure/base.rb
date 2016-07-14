@@ -27,8 +27,5 @@ module Figure
     def moves
       vectors.map { |vector_x, vector_y| [x + vector_x, y + vector_y] }
     end
-
-    def post_initialize(properties)
-    end
   end
 end

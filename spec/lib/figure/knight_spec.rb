@@ -1,10 +1,8 @@
 require 'figure/knight'
 
 describe Figure::Knight do
-
   describe '#possible_coordinates' do
     context 'when knight is starting' do
-
       context 'at least two fields from border' do
         let(:knight) { Figure::Knight.new(3, 3) }
         it 'returns 8 possible coordinates for next move' do
