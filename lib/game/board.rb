@@ -9,6 +9,7 @@ require 'support/moves_helper'
 module Game
   class Board
     include Support::MovesHelper
+    attr_accessor :chess_board
 
     def initialize
       @chess_board = {}

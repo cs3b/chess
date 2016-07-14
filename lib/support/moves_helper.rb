@@ -17,16 +17,16 @@ module Support
     }.freeze
 
     def possible_moves(x, y)
-      @chess_board[[x, y]].moves.select { |move| on_board?(move) && (valid_move?(move) || can_attack?([x, y], move)) }
+      chess_board[[x, y]].moves.select { |move| on_board?(move) && (valid_move?(move) || can_attack?([x, y], move)) }
     end
 
     def figure_coords_after_move(position, destination)
       if possible_moves(*position).include?(destination) && collision_check(position, destination)
-        @chess_board[destination] = @chess_board[position].tap { |figure| figure.x, figure.y = destination }
-        @chess_board.delete(position)
-        @chess_board[destination]
+        chess_board[destination] = chess_board[position].tap { |figure| figure.x, figure.y = destination }
+        chess_board.delete(position)
+        chess_board[destination]
       else
-        @chess_board[position]
+        chess_board[position]
       end
     end
 
@@ -40,11 +40,11 @@ module Support
     private
 
     def can_attack?(position, move)
-      @chess_board[position].color != @chess_board[move].color
+      chess_board[position].color != chess_board[move].color
     end
 
     def valid_move?(move)
-      @chess_board[move].nil?
+      chess_board[move].nil?
     end
 
     def on_board?(move)
