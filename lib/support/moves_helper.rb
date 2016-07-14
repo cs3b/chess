@@ -21,7 +21,7 @@ module Support
     end
 
     def figure_coords_after_move(position, destination)
-      if possible_moves(*position).include?(destination) && collision_check(position, destination)
+      if possible_moves(*position).include?(destination) && collision_check?(position, destination)
         chess_board[destination] = chess_board[position].tap { |figure| figure.x, figure.y = destination }
         chess_board.delete(position)
         chess_board[destination]
@@ -32,8 +32,8 @@ module Support
 
     def collision_check?(position, destination)
       vector = find_vector(position, destination)
-      coords = add_vectors(position, vector)
-      add_vectors(coords, vector) while valid_move?(coords) && coords != destination
+      coords = sum_vectors(position, vector)
+      coords = sum_vectors(coords, vector) while valid_move?(coords) && coords != destination && on_board?(coords)
       can_attack?(position, coords) && coords == destination ? true : false
     end
 
@@ -51,12 +51,14 @@ module Support
       SCOPE.cover?(move.first) && SCOPE.cover?(move.last)
     end
 
-    def add_vectors(a, b)
+    def sum_vectors(a, b)
       [a.first + b.first, a.last + b.last]
+    rescue
+      binding.pry
     end
 
     def vector_from_offset(coord)
-      coord > 0 ? coord / coord.abs : 0
+      coord != 0 ? coord / coord.abs : 0
     end
 
     def find_vector(position, destination)
