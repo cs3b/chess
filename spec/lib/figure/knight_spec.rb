@@ -1,16 +1,20 @@
 require 'figure/knight'
 
 describe Figure::Knight do
+  let(:knight) { Figure::Knight.new(*position) }
 
   describe '#possible_coordinates' do
-    context 'when knight is starting' do
-
-      context 'at least two fields from border' do
-        pending 'returns 8 possible coordinates for next move'
+    context 'at least 1 place from border' do
+      let(:position) { [1, 1] }
+      it 'returns 2 moves' do
+        expect(knight.possible_coordinates).to contain_exactly([2, 3], [3, 2])
       end
+    end
 
-      context 'in the corner of the board' do
-        pending 'returns 2 possible coordinates for next move'
+    context 'in the middle of the board' do
+      let(:position) { [4, 4] }
+      it 'returns 8 moves' do
+        expect(knight.possible_coordinates).to contain_exactly([2, 3], [2, 5], [6, 5], [3, 6], [5, 6], [6, 3], [5, 2], [3, 2])
       end
     end
   end

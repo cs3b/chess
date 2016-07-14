@@ -5,8 +5,9 @@ module Figure
     def vectors
       Bishop::VECTORS + Rook::VECTORS
     end
+
     def to_s
-      "Q"
+      'Q'
     end
   end
 end

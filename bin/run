@@ -50,8 +50,8 @@ class MoveFigure
   def move
     board = @game.instance_variable_get(:@chess_board)
 
-    board[[5,5]] = board[[1,1]]
-    board[[1,1]] = nil
+    board[[5, 5]] = board[[1, 1]]
+    board[[1, 1]] = nil
 
     self
   end
